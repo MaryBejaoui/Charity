@@ -1,0 +1,209 @@
+<!--**********************************
+	Content body start
+***********************************-->
+<div class="content-body col-xl-8" style="margin: auto">
+	<div class="container-fluid">
+		<div class="row page-titles mx-0">
+		<!-- row -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="card-title">Formulaire Donateur</h4>
+                    </div>
+					<div class="card-body">
+						<div class="form-validation">
+							<form class="form-valide" action="#" method="post" [formGroup]="angForm" novalidate>
+								<div class="row">
+									<div class="col-xl-6">
+										<div class="form-group row">
+											<label class="col-lg-4 col-form-label" for="cin">Cin
+												<span class="text-danger">*</span>
+                                            </label>
+											<div class="col-lg-6">
+												<input type="number" class="form-control" id="cin" formControlName="cin" placeholder="Enter votre cin..">
+												<div *ngIf="angForm.controls['cin'].invalid && (angForm.controls['cin'].dirty || angForm.controls['cin'].touched)" class="text-danger fs-13 mt-1">
+
+													<div *ngIf="angForm.controls['cin'].errors.required">
+														cin est obligatoire et doit etre 8  de chiffres.
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                          <label class="col-lg-4 col-form-label" for="nometprenom">Nom et Prenom
+                                            <span class="text-danger">*</span>
+                                                                </label>
+                                          <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="nometprenom" formControlName="nometprenom" placeholder="Enter votre nom et prenom..">
+                                            <div *ngIf="angForm.controls['nometprenom'].invalid && (angForm.controls['nometprenom'].dirty || angForm.controls['nometprenom'].touched)" class="text-danger fs-13 mt-1">
+
+                                              <div *ngIf="angForm.controls['nometprenom'].errors.required">
+                                                Nom et Prenom est obligatoire.
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+										<div class="form-group row">
+											<label class="col-lg-4 col-form-label" for="email">Email <span
+												class="text-danger">*</span>
+                                            </label>
+											<div class="col-lg-6">
+												<input type="text" class="form-control" id="email" formControlName="email" placeholder="votre mail ..">
+												<div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="text-danger fs-13 mt-1">
+													<div *ngIf="angForm.controls['email'].errors.required">
+														Email est obligatoire.
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+										<div class="form-group row">
+											<label class="col-lg-4 col-form-label" for="val-motdepasse">Mot de passe
+												<span class="text-danger">*</span>
+                                            </label>
+											<div class="col-lg-6">
+												<div class="input-group">
+													<input #inputPassword type="password" class="form-control" formControlName="motdepasse"  id="motdepasse" placeholder="Doit etre sécurisé">
+
+													<div class="input-group-append show-pass1 ">
+														<span class="input-group-text ">
+															<i class="fa" [ngClass]="{'fa-eye-slash': toggleEye, 'fa-eye': !toggleEye}" (click)="toggleEyeIcon(inputPassword)"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+												<div *ngIf="angForm.controls['motdepasse'].invalid && (angForm.controls['motdepasse'].dirty || angForm.controls['motdepasse'].touched)" class="text-danger fs-13 mt-1">
+
+													<div *ngIf="angForm.controls['motdepasse'].errors.required">
+														motdepasse est obligatoire.
+                                                    </div>
+													<div *ngIf="angForm.controls['motdepasse'].errors.minlength">
+														motdepasse doit etre au moins 8 characters.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                            <!-- /////////////////////////////////////////////////////////////////////////////////// -->
+
+                                                                <div class="form-group row">
+                                                                  <label class="col-lg-4 col-form-label" for="tel">Telephone
+                                                                    <span class="text-danger">*</span>
+                                                                                        </label>
+                                                                  <div class="col-lg-6">
+                                                                    <input type="number" class="form-control" id="tel" placeholder="216-00-000-000" formControlName="tel">
+                                                                    <div *ngIf="angForm.controls['tel'].invalid && (angForm.controls['tel'].dirty || angForm.controls['tel'].touched)" class="text-danger fs-13 mt-1">
+
+                                                                      <div *ngIf="angForm.controls['tel'].errors.required">
+                                                                        telephone est obligatoire.
+                                                                                                </div>
+
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                                    <div class="form-group row">
+                                                                                      <label class="col-lg-4 col-form-label" for="datedenaissance">Date de naissance
+                                                                                        <span class="text-danger">*</span>
+                                                                                                            </label>
+                                                                                      <div class="col-lg-6">
+                                                                                        <input type="date" class="form-control" id="datedenaissance"  formControlName="datedenaissance">
+                                                                                        <div *ngIf="angForm.controls['datedenaissance'].invalid && (angForm.controls['datedenaissance'].dirty || angForm.controls['datedenaissance'].touched)" class="text-danger fs-13 mt-1">
+
+                                                                                          <div *ngIf="angForm.controls['datedenaissance'].errors.required">
+                                                                                            Date de naissance obligatoire.
+                                                                                                                    </div>
+
+
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+
+
+                                                                                                        <div class="form-group row">
+                                                                                                          <label class="col-lg-4 col-form-label" for="gouvernorat">Gouvernorat
+                                                                                                            <span class="text-danger">*</span>
+                                                                                                                                </label>
+                                                                                                          <div class="col-lg-6">
+                                                                                                            <input type="text" class="form-control" id="gouvernorat" placeholder="Tunis" formControlName="gouvernorat">
+                                                                                                            <div *ngIf="angForm.controls['gouvernorat'].invalid && (angForm.controls['gouvernorat'].dirty || angForm.controls['gouvernorat'].touched)" class="text-danger fs-13 mt-1">
+
+                                                                                                              <div *ngIf="angForm.controls['gouvernorat'].errors.required">
+                                                                                                                Gouvernorat est obligatoire.
+                                                                                                                                        </div>
+
+
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+
+                                                                                                                            <div class="form-group row">
+                                                                                                                              <label class="col-lg-4 col-form-label" for="adresse">Adresse
+                                                                                                                                <span class="text-danger">*</span>
+                                                                                                                                                    </label>
+                                                                                                                              <div class="col-lg-6">
+                                                                                                                                <input type="text" class="form-control" id="adresse" placeholder="Rue..." formControlName="adresse">
+                                                                                                                                <div *ngIf="angForm.controls['adresse'].invalid && (angForm.controls['adresse'].dirty || angForm.controls['adresse'].touched)" class="text-danger fs-13 mt-1">
+
+                                                                                                                                  <div *ngIf="angForm.controls['adresse'].errors.required">
+                                                                                                                                    Adresse est obligatoire.
+                                                                                                                                                            </div>
+
+
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="form-group row">
+                                                                                                                                                <label class="col-lg-4 col-form-label" for="photo">Photo <span class="text-danger">*</span>
+                                                                                                                                                                      </label>
+                                                                                                                                                <a href="javascript:void()" class="btn btn-primary light mr-2 px-3" (click)="open(cameraModal)"><i class="fa fa-camera"></i> </a>
+														<!-- Modal -->
+														<ng-template #cameraModal let-modal>
+															<div class="modal-header">
+																<h5 class="modal-title">Importer image</h5>
+																<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body">
+																<div class="input-group mb-3">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text">Importer</span>
+																	</div>
+																	<div class="custom-file">
+																		<input type="file" class="custom-file-input">
+																		<label class="custom-file-label">choisir un fichier</label>
+																	</div>
+																</div>
+															</div>
+														</ng-template>
+
+
+                  </div>
+
+
+                                          </div>
+                                    </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--**********************************
+	Content body end
+***********************************-->
